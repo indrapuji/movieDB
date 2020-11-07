@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { Table } from "react-bootstrap";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
+import { addFav, delFav } from "../store/actions/favAction";
 
 const TableMovie = (props) => {
-  const [inHover, setHover] = useState(<FaRegStar />);
+  const location = useLocation();
+  const dispatch = useDispatch();
 
-  function handdleHover() {
-    setHover(<FaStar />);
+  function AddNewFav(newFav) {
+    dispatch(addFav(newFav));
   }
-
-  function handdleLeave() {
-    setHover(<FaRegStar />);
+  function DelNewFav(newFav) {
+    dispatch(delFav(newFav));
   }
 
   return (
@@ -32,9 +35,15 @@ const TableMovie = (props) => {
                   <td>{file.Title}</td>
                   <td>{file.Year}</td>
                   <td>{file.imdbID}</td>
-                  <td className="starIcon" onMouseEnter={() => handdleHover()} onMouseLeave={() => handdleLeave()}>
-                    {inHover}
-                  </td>
+                  {location.pathname === "/" ? (
+                    <td className="starIcon" onClick={() => AddNewFav(file)}>
+                      <FaRegStar />
+                    </td>
+                  ) : (
+                    <td className="starIcon" onClick={() => DelNewFav(file)}>
+                      <FaStar />
+                    </td>
+                  )}
                 </tr>
               );
             })}
