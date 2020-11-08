@@ -1,0 +1,30 @@
+.navlink {
+  margin-right: 20px;
+  color: black;
+  font-weight: bold;
+}
+
+.navActive {
+  margin-right: 20px;
+  color: blue;
+  font-weight: bold;
+}
+
+.navigationBar {
+  border-color: black;
+  border-width: 3px;
+  border-bottom-style: solid;
+  margin-bottom: 60px;
+}
+
+.tabBody {
+  margin: 30px;
+}
+
+.starIcon {
+  cursor: pointer;
+}
+
+.title {
+  cursor: pointer;
+}
