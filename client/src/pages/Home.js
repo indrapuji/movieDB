@@ -7,11 +7,10 @@ import TableMovie from "../components/TableMovie";
 const Home = () => {
   const [input, setInput] = useState("");
 
-  console.log(input);
-
   function onSearchSubmit(payload) {
     setInput(payload.Search);
   }
+  
   return (
     <>
       <Container>
